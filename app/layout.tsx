@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kenta-creative-portfolio.ka-k-miwa.chatgpt.site"),
   title: "KENTA CREATIVE｜Webデザイン・フロントエンド ポートフォリオ",
   description: "美容・飲食・アパレル・電気会社・キャンペーンのHP、LP、バナーデザイン。ワイヤーフレーム、SEO設計、TypeScript実装まで掲載。",
   keywords: ["Webデザイン", "LP制作", "バナーデザイン", "フロントエンド", "TypeScript", "ポートフォリオ"],
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
   },
   twitter: { card: "summary", title: "KENTA CREATIVE", description: "Web Design & Frontend Portfolio" },
+  alternates: { canonical: "/" },
   icons: {
     icon: "/favicon-kenta.svg",
     shortcut: "/favicon-kenta.svg",

@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type CSSProperties, type FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowDownRight, Check, CheckCircle2, ChevronRight, Code2, ExternalLink, LayoutTemplate, Menu, MousePointer2, Palette, Search, Send, Sparkles, X, Zap } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -55,7 +56,7 @@ export default function Home() {
     finally { setSubmitting(false); }
   };
   return <main>
-    <header className="site-header"><a className="brand" href="#top" aria-label="ページ上部へ"><span>K</span> KENTA CREATIVE</a><nav className={menuOpen ? "nav-open" : ""} aria-label="メインナビゲーション"><a href="#works" onClick={() => setMenuOpen(false)}>WORKS</a><a href="#process" onClick={() => setMenuOpen(false)}>PROCESS</a><a href="#code" onClick={() => setMenuOpen(false)}>CODE</a><a href="#seo" onClick={() => setMenuOpen(false)}>SEO</a><a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>CONTACT</a></nav><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="メニューを開閉">{menuOpen ? <X /> : <Menu />}</button></header>
+    <header className="site-header"><a className="brand" href="#top" aria-label="ページ上部へ"><span>K</span> KENTA CREATIVE</a><nav className={menuOpen ? "nav-open" : ""} aria-label="メインナビゲーション"><a href="#works" onClick={() => setMenuOpen(false)}>WORKS</a><a href="#process" onClick={() => setMenuOpen(false)}>PROCESS</a><a href="#code" onClick={() => setMenuOpen(false)}>CODE</a><Link href="/services" onClick={() => setMenuOpen(false)}>SERVICE</Link><Link href="/booking-demo" onClick={() => setMenuOpen(false)}>BOOKING DEMO</Link><a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>CONTACT</a></nav><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="メニューを開閉">{menuOpen ? <X /> : <Menu />}</button></header>
     <section className="intro" id="top"><div className="eyebrow"><span /> PORTFOLIO 2026</div><div className="intro-grid"><h1>DESIGN THAT<br /><em>MOVES</em> PEOPLE.</h1><div className="intro-note"><p>業種ごとの目的と顧客心理から逆算し、ワイヤーフレーム、UIデザイン、SEO、実装まで一貫して設計。</p><a href="#works">作品を見る <ArrowDownRight /></a></div></div><div className="stats"><div><strong>05</strong><span>INDUSTRIES</span></div><div><strong>15</strong><span>DELIVERABLES</span></div><div><strong>05</strong><span>TECHNOLOGIES</span></div></div><div className="ticker" aria-hidden="true"><span>STRATEGY — WIREFRAME — VISUAL DESIGN — SEO — FRONTEND — STRATEGY — WIREFRAME — VISUAL DESIGN — SEO — FRONTEND —</span></div></section>
     <section className="works" id="works"><div className="section-title"><span>01 / SELECTED WORKS</span><h2>5つの業界、<br />5つの勝ち筋。</h2></div><div className="industry-list">{industries.map((item) => <button key={item.id} className={`industry-row ${activeId === item.id ? "active" : ""}`} onClick={() => selectIndustry(item.id)}><span>{item.number}</span><strong>{item.name}</strong><em>{item.english}</em><p>{item.concept}</p><ArrowDownRight /></button>)}</div></section>
     <section className={`case-study theme-${active.id}`} id="case-study" style={theme}><div className="case-header"><div><span>CASE {active.number}</span><h2>{active.brand}</h2></div><div className="case-meta"><p><b>TARGET</b>{active.audience}</p><p><b>GOAL</b>{active.goal}</p></div></div><div className="design-system"><div className="visual-thesis"><Palette /><span>VISUAL THESIS</span><h3>{active.concept}</h3><p>{active.mood}</p></div><div className="token-panel"><div><span>COLOR</span><i style={{ background: active.primary }} /><i style={{ background: active.secondary }} /><i style={{ background: active.surface }} /></div><div><span>TYPE</span><strong>{active.font}</strong></div><div><span>KEYWORDS</span><strong>{active.tags.join(" / ")}</strong></div></div></div>
@@ -80,6 +81,6 @@ export default function Home() {
         </form>}
       </div>
     </section>
-    <footer><div><Sparkles /><span>AVAILABLE FOR WEB DESIGN & FRONTEND</span></div><h2>GOOD DESIGN<br />STARTS WITH<br /><em>A CLEAR GOAL.</em></h2><a href="#top">BACK TO TOP <ExternalLink /></a><p>© 2026 KENTA CREATIVE PORTFOLIO　<a className="ops-link" href="/ops" target="_top">運用ログイン</a></p></footer>
+    <footer><div><Sparkles /><span>AVAILABLE FOR WEB DESIGN & FRONTEND</span></div><h2>GOOD DESIGN<br />STARTS WITH<br /><em>A CLEAR GOAL.</em></h2><a href="#top">BACK TO TOP <ExternalLink /></a><p>© 2026 KENTA CREATIVE PORTFOLIO　<Link className="ops-link" href="/services">料金・制作条件</Link>　<Link className="ops-link" href="/privacy">プライバシー</Link>　<Link className="ops-link" href="/ops">運用ログイン</Link></p></footer>
   </main>;
 }

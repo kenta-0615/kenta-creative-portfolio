@@ -51,6 +51,12 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
+    define: {
+      // vinext's client navigation failure guard reads this Next-internal flag.
+      // Replace it at build time so browser bundles never depend on Node's
+      // global `process` object.
+      "process.env.__NEXT_APP_NAV_FAIL_HANDLING": "false",
+    },
     server: {
       ...(managedLinux ? { host: "0.0.0.0", allowedHosts: ["terminal.local"] } : {}),
       ...(isCodexSeatbeltSandbox ? { watch: { useFsEvents: false, usePolling: true } } : {}),
