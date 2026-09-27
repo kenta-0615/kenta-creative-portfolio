@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "予約フォーム・カレンダー実装デモ｜KENTA CREATIVE",
+  title: "予約フォーム・カレンダー実装デモ｜KENTY CREATIVE",
   description: "美容サロンを想定した、日付・時間帯選択と予約フォームのインタラクティブ実装例。",
   alternates: { canonical: "/booking-demo" },
 };

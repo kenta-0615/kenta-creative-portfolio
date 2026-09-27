@@ -8,6 +8,11 @@
 .priceGrid strong{font-size:clamp(38px,4.4vw,62px);line-height:1;color:#111;font-weight:900}
 .priceGrid span{color:#555;margin-top:10px;font-weight:700}
 .faqContent{color:#c7c7c7}
+.faqTrigger{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;cursor:pointer;font-weight:700;list-style:none}
+.faqTrigger::-webkit-details-marker{display:none}
+.faqTrigger span{flex:0 0 auto;color:#d9ff43;font-size:26px;line-height:.8;transition:transform .2s ease}
+.faqItem[open] .faqTrigger span{transform:rotate(45deg)}
+.faqContent p{margin:0;padding:0 44px 26px 0}
 
 /* Atomic price typography: qualifier and amount keep separate visual roles. */
 .priceCard .price{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;color:#111}

@@ -1,0 +1,35 @@
+---
+description: KENTY CREATIVEポートフォリオの安全な編集ルール
+alwaysApply: true
+---
+
+# プロジェクト方針
+
+- 公開名は必ず「ケンティ」または「KENTY CREATIVE」を使用する。旧名や本名を公開コード、画面、メタデータへ追加しない。
+- Next.js互換のVinext、React、TypeScript構成と既存のpnpmロックファイルを維持する。
+- UIは`atoms → molecules → organisms → templates → app`のAtomic Design構造を優先する。
+- ページ間リンクは既存の`ReliableLink`を使用し、ページ内リンクは通常の`a`要素を使用する。
+- `.next`、`dist`、`node_modules`、`.wrangler`、`.sites-runtime`などの生成物を編集しない。
+
+# セキュリティ
+
+- 秘密情報、メールアドレス、APIキー、トークンをコードやGitへ保存しない。ローカル値は`.env.local`へ置く。
+- `/ops`の認証を解除したり、許可メールが未設定の利用者を通したりしない。
+- 予約デモへ入力された個人情報は保存・外部送信しない。
+- 問い合わせAPIを変更する場合は入力検証、ハニーポット、エラー処理を維持する。
+
+# 実装ルール
+
+- 既存のレスポンシブデザイン、アクセシビリティ、SEOメタデータを維持する。
+- レイアウト変更はPCとスマートフォンの両方を確認する。
+- 日付・料金・公開情報を架空の実績として断定しない。
+- 不要な依存パッケージを追加しない。
+
+# 完了条件
+
+変更後は次を実行し、失敗を解消する。
+
+1. `pnpm typecheck`
+2. `pnpm test`
+3. `pnpm lint`
+4. ページ構成やビルド設定を変更した場合は`pnpm build`
