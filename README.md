@@ -17,11 +17,18 @@
 
 ### 初回だけ
 
-1. CursorまたはVS Codeで、このリポジトリのルートフォルダを開きます。
-2. Node.js 22.13.0以上を使用します。nvmを利用している場合は `nvm use` で、このリポジトリの`.nvmrc`を適用できます。
-3. `corepack enable` を実行し、`pnpm --version` が `11.25.0` であることを確認します。
-4. ターミナルで `pnpm install --frozen-lockfile` を実行します。
-5. 必要に応じて `.env.example` を複製し、`.env.local` を作成します。
+1. GitHub Desktopで `kenta-0615/kenta-creative-portfolio` をCloneします。CLIを使う場合は次を実行します。
+
+   ```bash
+   git clone https://github.com/kenta-0615/kenta-creative-portfolio.git
+   cd kenta-creative-portfolio
+   ```
+
+2. GitHub Desktopの「Open in Visual Studio Code」、またはCursor／VS Codeの「フォルダーを開く」から、Cloneしたルートフォルダを開きます。
+3. Node.js 22.13.0以上を使用します。nvmを利用している場合は `nvm use` で、このリポジトリの`.nvmrc`を適用できます。
+4. `corepack enable` を実行し、`pnpm --version` が `11.25.0` であることを確認します。
+5. ターミナルで `pnpm install --frozen-lockfile` を実行します。
+6. 必要に応じて `.env.example` を複製し、`.env.local` を作成します。
 
 ### 開発を開始する
 
