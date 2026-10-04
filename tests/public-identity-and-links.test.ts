@@ -64,7 +64,7 @@ test("home page communicates commercial frontend experience and clear inquiry pa
   const page = readFileSync(resolve(root, "app/page.tsx"), "utf8");
   assert.match(page, /React・TypeScript<br\/>実務3年/);
   assert.match(page, /HP・LP制作<br\/>1年7か月/);
-  assert.match(page, /案件を相談する/);
+  assert.match(page, /無料で案件相談する/);
   assert.match(page, /料金・制作条件を見る/);
 });
 

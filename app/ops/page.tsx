@@ -7,7 +7,7 @@ import { canAccessOperations } from "@/lib/ops-auth";
 import OperationsDashboard from "./operations-dashboard";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "運用管理｜KENTY CREATIVE", robots: { index: false, follow: false } };
+export const metadata = { title: "運用管理", robots: { index: false, follow: false } };
 
 export default async function OperationsPage() {
   const user = await requireChatGPTUser("/ops");

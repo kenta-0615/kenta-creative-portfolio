@@ -1,0 +1,10 @@
+import { notFound } from "next/navigation";
+import { ArrowRight, Check } from "lucide-react";
+import { InfoHeader } from "@/components/organisms/info-header";
+import { ReliableLink } from "@/components/atoms/reliable-link";
+import { works } from "@/data/portfolio-content";
+import styles from "../works.module.css";
+
+export function generateStaticParams(){ return works.map(({slug})=>({slug})); }
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){ const {slug}=await params; const work=works.find(item=>item.slug===slug); return work?{title:`${work.title}｜制作事例`,description:work.summary,alternates:{canonical:`/works/${slug}`}}:{}; }
+export default async function WorkPage({params}:{params:Promise<{slug:string}>}){ const {slug}=await params; const work=works.find(item=>item.slug===slug); if(!work) notFound(); const groups=[["想定課題",[work.challenge]],["設計の判断",work.strategy],["採用しなかった案",[work.rejected]],["実装技術",work.implementation],["アクセシビリティ",work.accessibility],["確認・テスト",work.tests]] as const; return <main className={styles.page}><InfoHeader/><article className={styles.detail}><header><small>自主制作 / CASE {work.number} / {work.industry}</small><h1>{work.title}</h1><p>{work.summary}</p><dl><div><dt>ターゲット</dt><dd>{work.target}</dd></div><div><dt>コンバージョン</dt><dd>{work.conversion}</dd></div></dl></header><section className={styles.flow}><div><span>DISCOVER</span><b>課題と検索意図</b></div><div><span>STRUCTURE</span><b>情報の優先順位</b></div><div><span>BUILD</span><b>実装と検証</b></div></section><div className={styles.detailGrid}>{groups.map(([title,items],index)=><section key={title}><small>0{index+1}</small><h2>{title}</h2><ul>{items.map(item=><li key={item}><Check/>{item}</li>)}</ul></section>)}</div><aside className={styles.disclosure}><b>掲載区分について</b><p>この事例は設計力・実装力を示す自主制作です。実在企業の成果や実測値としては掲載していません。</p></aside><nav className={styles.actions}>{work.demo&&<ReliableLink href={work.demo}>操作デモを見る <ArrowRight/></ReliableLink>}<ReliableLink href="/#contact">無料で案件相談する <ArrowRight/></ReliableLink><ReliableLink href="/works">事例一覧へ戻る</ReliableLink></nav></article></main> }

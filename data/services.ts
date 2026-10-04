@@ -7,6 +7,7 @@ export const services: readonly ServiceItem[] = [
   { number: "04", title: "フロントエンド", description: "デザインを保ちながら、運用しやすい画面へ実装。", items: ["React / TypeScript", "HTML / CSS / JavaScript", "Tailwind CSS", "アクセシビリティ"] },
   { number: "05", title: "予約・フォーム", description: "予約体験と運用フローを一体で設計。", items: ["カレンダーUI", "時間枠選択", "入力検証", "管理画面設計"] },
   { number: "06", title: "改善・運用", description: "公開後の計測結果をもとに継続改善。", items: ["SEO改善", "導線改善", "更新対応", "GitHub運用"] },
+  { number: "07", title: "モバイルアプリ", description: "React Native・Expoを想定したアプリUIと実装設計。", items: ["React Native / Expo", "TypeScript", "画面遷移・状態管理", "テスト設計"] },
 ];
 
 export const pricePlans: readonly PricePlan[] = [
@@ -19,12 +20,13 @@ export const pricePlans: readonly PricePlan[] = [
 ];
 
 export const caseStudies: readonly CaseStudy[] = [
-  { industry: "美容", title: "LUMIÈRE SKIN", description: "予約獲得を目的に、静かな高級感とカウンセリング導線を設計。", href: "/#case-study" },
-  { industry: "飲食", title: "季ノ皿 KINOSARA", description: "旬の物語とコース予約を結びつけたサイト・LP・バナー。", href: "/#case-study" },
-  { industry: "アパレル", title: "ÉLAN STUDIO", description: "新作購入へつなげるエディトリアルなECプロモーション。", href: "/#case-study" },
-  { industry: "電気会社", title: "HIKARI ENERGY", description: "料金の分かりやすさと信頼性を重視した獲得導線。", href: "/#case-study" },
-  { industry: "キャンペーン", title: "TOKYO CREATIVE WEEK", description: "イベント認知と無料登録を促す高コントラスト設計。", href: "/#case-study" },
+  { industry: "美容", title: "LUMIÈRE SKIN", description: "予約獲得を目的に、静かな高級感とカウンセリング導線を設計。", href: "/works/lumiere-skin" },
+  { industry: "飲食", title: "季ノ皿 KINOSARA", description: "旬の物語とコース予約を結びつけたサイト・LP・バナー。", href: "/works/kinosara" },
+  { industry: "アパレル", title: "ÉLAN STUDIO", description: "新作購入へつなげるエディトリアルなECプロモーション。", href: "/works/elan-studio" },
+  { industry: "電気会社", title: "HIKARI ENERGY", description: "料金の分かりやすさと信頼性を重視した獲得導線。", href: "/works/hikari-energy" },
+  { industry: "キャンペーン", title: "TOKYO CREATIVE WEEK", description: "イベント認知と無料登録を促す高コントラスト設計。", href: "/works/tokyo-creative-week" },
   { industry: "予約システム", title: "SALON BOOKING DEMO", description: "カレンダー、空き枠、フォーム、確認画面までの操作デモ。", href: "/booking-demo" },
+  { industry: "モバイルアプリ", title: "RHYTHM", description: "React Nativeでの実装を想定した習慣管理アプリ。", href: "/react-native-app" },
 ];
 
 export const faqItems: readonly FaqItem[] = [
