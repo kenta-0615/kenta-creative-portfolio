@@ -1,5 +1,6 @@
 export const inquiryStatuses = ["new", "replied", "hearing", "proposal", "contracted", "production", "review", "delivered", "closed"] as const;
 export type InquiryStatus = (typeof inquiryStatuses)[number];
+export const INQUIRY_MESSAGE_MIN_LENGTH = 3;
 
 export type InquiryInput = {
   name: string; company: string; email: string; clientType: string; projectType: string;
@@ -17,7 +18,11 @@ export function validateInquiryPayload(payload: unknown):
   const startedAt = Number(body.startedAt);
   if (!Number.isFinite(startedAt) || Date.now() - startedAt < 2500) return { success:false, error:"", spam:true };
   const name=value("name"), email=value("email"), clientType=value("clientType"), projectType=value("projectType"), message=value("message"), referenceUrl=value("referenceUrl");
-  if (!name || !email || !clientType || !projectType || message.length < 20) return { success:false, error:"必須項目を確認してください" };
+  if (!name) return { success:false, error:"お名前を入力してください" };
+  if (!email) return { success:false, error:"メールアドレスを入力してください" };
+  if (!clientType) return { success:false, error:"依頼区分を選択してください" };
+  if (!projectType) return { success:false, error:"ご相談内容を選択してください" };
+  if (message.length < INQUIRY_MESSAGE_MIN_LENGTH) return { success:false, error:`ご相談内容の詳細を${INQUIRY_MESSAGE_MIN_LENGTH}文字以上で入力してください` };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { success:false, error:"メールアドレスを確認してください" };
   if (referenceUrl) { try { const url=new URL(referenceUrl); if (!["http:","https:"].includes(url.protocol)) throw new Error(); } catch { return {success:false,error:"参考URLを確認してください"}; } }
   return { success:true, data:{ name:name.slice(0,100), company:value("company").slice(0,120), email:email.slice(0,254), clientType:clientType.slice(0,80), projectType:projectType.slice(0,80), budget:value("budget").slice(0,80)||"未定・相談したい", schedule:value("schedule").slice(0,80)||"未定・相談したい", referenceUrl:referenceUrl.slice(0,1000), message:message.slice(0,5000) } };
