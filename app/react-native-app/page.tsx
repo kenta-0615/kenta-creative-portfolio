@@ -3,7 +3,7 @@ import { ReactNativePortfolioTemplate } from "@/components/templates/react-nativ
 
 export const metadata: Metadata = {
   title: "React Nativeアプリ制作事例",
-  description: "React Native・Expo・TypeScriptを想定し、習慣記録、進捗可視化、通知、アクセシビリティまで設計したモバイルアプリの自主制作事例です。",
+  description: "React Native・Expo・TypeScriptで実装した、習慣記録、進捗可視化、端末保存、アクセシビリティ対応を含むモバイルアプリの自主制作事例です。",
   alternates: { canonical: "/react-native-app" },
 };
 
